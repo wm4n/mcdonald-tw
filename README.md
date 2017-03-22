@@ -2,7 +2,7 @@
 Using React Native to implement the famous McDonald's app "麥當勞報報" in Taiwan. This is pure for React Native studying purpose and it is not meant for any other use...
 
 ### Demo Screens
-![麥當勞報報 Demo Screens](/../readme/img/screencast3.gif?raw=true "麥當勞報報 Demo Screens")
+![麥當勞報報 Demo Screens](/../readme/img/screencast.gif?raw=true "麥當勞報報 Demo Screens")
 
 ### Download the Original App
 [Original 麥當勞報報 on iTunes](https://itunes.apple.com/tw/app/麥當勞報報/id1094635803?l=zh&mt=8)
