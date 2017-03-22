@@ -2,12 +2,17 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 import MenuListView from './MenuListView';
 
+/**
+ * The main page and it's responsible for showing all coupon items
+ */
 class MenuPage extends React.Component {
+
+  // Header style follows the original app that has white text and red background
   static navigationOptions = {
     title: '選擇優惠卷',
     header: (/*navigation, defaultHeader*/) => ({
       titleStyle: {
-        color: '#FFFFFF'
+        color: '#FFFFFF' 
       },
       style: {
         backgroundColor: '#FF0000'
@@ -15,6 +20,7 @@ class MenuPage extends React.Component {
     })
   };
 
+  // The page contains a header and a listview. Also, make the status bar text white
   render() {
     const { navigate } = this.props.navigation;
     return (

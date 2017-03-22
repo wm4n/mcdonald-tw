@@ -8,10 +8,14 @@ import {
 } from 'react-native';
 import MenuItem from '../MenuItem';
 
+/**
+ * List that shows the menu collection
+ */
 class MenuListView extends React.Component {
   // Initialize the hardcoded data
   constructor(props) {
     super(props);
+    // TODO: data should be parameterizable
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows(MenuItem)
@@ -20,7 +24,10 @@ class MenuListView extends React.Component {
 
   renderItem(rowData) {
     return (
+        // Render each menu item and make them go to the exchange page if selected
       <TouchableHighlight
+        key={rowData.title}
+        // TODO: make press action parameterizable
         onPress={() => this.props.navigator('Exchange', { data: rowData })}
         style={styles.listContainer}
       >

@@ -1,8 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, Image, TouchableHighlight, Alert } from 'react-native';
 
+/**
+ * Display the actual coupon page. Showing this to the counter while 
+ * pressing the exchange button 
+ */
 class ExchangePage extends React.Component {
 
+  // header style follows the original app
   static navigationOptions = {
     title: '優惠卷',
     header: (navigation/*, defaultHeader*/) => ({
@@ -18,6 +23,7 @@ class ExchangePage extends React.Component {
         </TouchableHighlight>
       ),
       right: (
+        // this text is just to make the page like the actual app so we're not handling action
         <Text style={{ color: '#FFFFFF', marginRight: 10 }}>搜尋附近餐廳</Text>
       )
     })
@@ -30,6 +36,7 @@ class ExchangePage extends React.Component {
   };
 
   componentWillUnmount() {
+    // Clear the countdown timer when component distroy
     if (this.timer != null) {
       clearInterval(this.timer);
       this.timer = null;
@@ -38,16 +45,20 @@ class ExchangePage extends React.Component {
 
   onExchange() {
     if (this.state.isUsed) {
+      // Countdown in progress, cancel it
       clearInterval(this.timer);
       this.setState({ isUsed: false, countDown: 120 });
     } else {
+      // Display the confirm dialog
       Alert.alert('確認兌換優惠', '請確認你已經在麥當勞櫃檯，點選「立即兌換」後，需於兩分鐘內出示給結帳人員', [
         {
+          // Cancel exchange
           text: '暫不兌換',
           onPress: () => console.log('Next time...')
         }, {
           text: '立即兌換',
           onPress: () => {
+            // Confirmed, start the count countDown
             this.setState({ isUsed: true });
             this.timer = setInterval(() => {
               this.setState({
